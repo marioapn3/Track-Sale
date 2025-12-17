@@ -1,4 +1,4 @@
-# Track Sale
+# Laravel Modular
 
 A Laravel application with modular architecture.
 
