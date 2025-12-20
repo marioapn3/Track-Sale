@@ -1,7 +1,8 @@
 <?php
 
+use App\Common\Enums\RouteEnums;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route(RouteEnums::LOGIN_VIEW->value);
 });

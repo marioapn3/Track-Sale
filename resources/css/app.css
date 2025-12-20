@@ -1,11 +1,308 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
 @import 'tailwindcss';
 
+/* stylelint-disable at-rule-no-unknown */
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+@source '../**/*.tsx';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* ===============================
+   THEME TOKENS
+================================ */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Font */
+    --font-outfit: Outfit, sans-serif;
+
+    /* Colors */
+    --color-white: #ffffff;
+    --color-black: #101828;
+
+    /* Brand */
+    --color-brand-25: #f2f7ff;
+    --color-brand-50: #ecf3ff;
+    --color-brand-100: #dde9ff;
+    --color-brand-200: #c2d6ff;
+    --color-brand-300: #9cb9ff;
+    --color-brand-400: #7592ff;
+    --color-brand-500: #465fff;
+    --color-brand-600: #3641f5;
+    --color-brand-700: #2a31d8;
+    --color-brand-800: #252dae;
+    --color-brand-900: #262e89;
+    --color-brand-950: #161950;
+
+    /* Gray */
+    --color-gray-dark: #1a2231;
+    --color-gray-25: #fcfcfd;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f2f4f7;
+    --color-gray-200: #e4e7ec;
+    --color-gray-300: #d0d5dd;
+    --color-gray-400: #98a2b3;
+    --color-gray-500: #667085;
+    --color-gray-600: #475467;
+    --color-gray-700: #344054;
+    --color-gray-800: #1d2939;
+    --color-gray-900: #101828;
+    --color-gray-950: #0c111d;
+
+    /* Status */
+    --color-success-500: #12b76a;
+    --color-error-500: #f04438;
+    --color-warning-500: #f79009;
+
+    /* Radius */
+    --radius-lg: 0.75rem;
+
+    /* Spacing (custom) */
+    --spacing-4-5: 1.125rem;
+    --spacing-5-5: 1.375rem;
+    --spacing-6-5: 1.625rem;
+    --spacing-7-5: 1.875rem;
+    --spacing-8-5: 2.125rem;
+    --spacing-9-5: 2.375rem;
+    --spacing-10-5: 2.625rem;
+
+    /* Z-index */
+    --z-999999: 999999;
+    --z-99999: 99999;
+    --z-9999: 9999;
+    --z-999: 999;
+    --z-99: 99;
+    --z-9: 9;
+}
+/* stylelint-enable at-rule-no-unknown */
+
+/* ===============================
+   BREAKPOINTS
+================================ */
+/* stylelint-disable at-rule-no-unknown */
+@custom-media --2xsm (min-width: 375px);
+@custom-media --xsm (min-width: 425px);
+@custom-media --3xl (min-width: 2000px);
+/* stylelint-enable at-rule-no-unknown */
+
+/* ===============================
+   BASE
+================================ */
+@layer base {
+    html {
+        color-scheme: light dark;
+    }
+
+    body {
+        font-family: var(--font-outfit);
+        background-color: var(--color-white);
+        color: var(--color-gray-900);
+    }
+
+    :where(.dark, .dark *) {
+        color-scheme: dark;
+    }
+
+    html.dark {
+        background-color: var(--color-gray-900);
+    }
+
+    html.dark body {
+        background-color: var(--color-gray-900);
+        color: var(--color-white);
+    }
+}
+
+/* ===============================
+   UTILITIES
+================================ */
+@layer utilities {
+
+    /* Font sizes */
+    .text-title-2xl {
+        font-size: 72px;
+        line-height: 90px;
+    }
+
+    .text-title-xl {
+        font-size: 60px;
+        line-height: 72px;
+    }
+
+    .text-title-lg {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    .text-title-md {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .text-title-sm {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    /* Shadows */
+    .shadow-theme-md {
+        box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, .10),
+            0px 2px 4px -2px rgba(16, 24, 40, .06);
+    }
+
+    .shadow-theme-lg {
+        box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, .08),
+            0px 4px 6px -2px rgba(16, 24, 40, .03);
+    }
+
+    /* Z-index */
+    .z-999999 {
+        z-index: var(--z-999999);
+    }
+
+    /* Sidebar Menu Items */
+    .menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.625rem 0.875rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+    }
+
+    .menu-item-icon-size {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .menu-item-text {
+        flex: 1;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .menu-item-active {
+        background-color: var(--color-brand-50);
+        color: var(--color-brand-600);
+    }
+
+    .menu-item-inactive {
+        color: var(--color-gray-600);
+    }
+
+    .menu-item-inactive:hover {
+        background-color: var(--color-gray-50);
+        color: var(--color-gray-900);
+    }
+
+    .dark .menu-item-active {
+        background-color: var(--color-brand-900);
+        color: var(--color-brand-300);
+    }
+
+    .dark .menu-item-inactive {
+        color: var(--color-gray-400);
+    }
+
+    .dark .menu-item-inactive:hover {
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+    }
+
+    .menu-item-icon-active {
+        color: var(--color-brand-600);
+    }
+
+    .menu-item-icon-inactive {
+        color: var(--color-gray-500);
+    }
+
+    .dark .menu-item-icon-active {
+        color: var(--color-brand-300);
+    }
+
+    .dark .menu-item-icon-inactive {
+        color: var(--color-gray-400);
+    }
+
+    /* Dropdown Menu Items */
+    .menu-dropdown-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+    }
+
+    .menu-dropdown-item-active {
+        background-color: var(--color-brand-50);
+        color: var(--color-brand-600);
+    }
+
+    .menu-dropdown-item-inactive {
+        color: var(--color-gray-600);
+    }
+
+    .menu-dropdown-item-inactive:hover {
+        background-color: var(--color-gray-50);
+        color: var(--color-gray-900);
+    }
+
+    .dark .menu-dropdown-item-active {
+        background-color: var(--color-brand-900);
+        color: var(--color-brand-300);
+    }
+
+    .dark .menu-dropdown-item-inactive {
+        color: var(--color-gray-400);
+    }
+
+    .dark .menu-dropdown-item-inactive:hover {
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+    }
+
+    .menu-dropdown-badge {
+        padding: 0.125rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: lowercase;
+    }
+
+    .menu-dropdown-badge-active {
+        background-color: var(--color-brand-100);
+        color: var(--color-brand-700);
+    }
+
+    .menu-dropdown-badge-inactive {
+        background-color: var(--color-gray-100);
+        color: var(--color-gray-600);
+    }
+
+    .dark .menu-dropdown-badge-active {
+        background-color: var(--color-brand-800);
+        color: var(--color-brand-200);
+    }
+
+    .dark .menu-dropdown-badge-inactive {
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-400);
+    }
 }
