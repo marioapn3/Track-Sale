@@ -1,4 +1,4 @@
-import { Role } from "../../../api/features/dashboard/roles-permissions/Types";
+import { Role } from "../../../api/features/dashboard/roles-permissions/interface";
 import { deleteRole } from "../../../api/features/dashboard/roles-permissions";
 import ModalDelete from "../../../components/ui/modal/ModalDelete";
 

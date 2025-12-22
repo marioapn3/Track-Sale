@@ -4,7 +4,7 @@ import Input from "../../../components/form/input/InputField";
 import Label from "../../../components/form/Label";
 import FileInput from "../../../components/form/input/FileInput";
 import { getAppSettings, updateAppSettings, type UpdateAppSettingsPayload } from "../../../api/features/dashboard/app-setings";
-import type { AppSettings } from "../../../api/features/dashboard/app-setings/Types";
+import type { AppSettings } from "../../../api/features/dashboard/app-setings/interface";
 import { X } from "lucide-react";
 import PageBreadcrumb from "../../../components/common/PageBreadCrumb";
 

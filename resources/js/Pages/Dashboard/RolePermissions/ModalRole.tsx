@@ -3,7 +3,7 @@ import { Modal } from "../../../components/ui/modal";
 import Input from "../../../components/form/input/InputField";
 import Label from "../../../components/form/Label";
 import Button from "../../../components/ui/button/Button";
-import { Role } from "../../../api/features/dashboard/roles-permissions/Types";
+import { Role } from "../../../api/features/dashboard/roles-permissions/interface";
 import { createRole, updateRole } from "../../../api/features/dashboard/roles-permissions";
 import { Loader2 } from "lucide-react";
 

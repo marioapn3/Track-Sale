@@ -18,7 +18,7 @@ const LayoutContent: React.FC<AppLayoutProps> = ({ children }) => {
       </div>
       <div
         className={`flex-1 transition-all duration-300 ease-in-out bg-white dark:bg-gray-900 ${
-          isExpanded || isHovered ? "lg:ml-[290px]" : "lg:ml-[90px]"
+          isExpanded || isHovered ? "lg:ml-[250px]" : "lg:ml-[90px]"
         } ${isMobileOpen ? "ml-0" : ""}`}
       >
         <AppHeader />

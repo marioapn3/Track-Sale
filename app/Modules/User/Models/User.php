@@ -2,6 +2,7 @@
 
 namespace App\Modules\User\Models;
 
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,7 +12,16 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     protected $table = 'users';
-    use HasFactory, Notifiable, HasRoles;
+
+    use HasFactory, HasRoles, Notifiable;
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return UserFactory::new();
+    }
 
     /**
      * The attributes that are mass assignable.

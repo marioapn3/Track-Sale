@@ -25,10 +25,13 @@ class RolePermissionSeeder extends Seeder
                     'delete-role',
                 ],
             ],
+            [
+                'name' => 'sales',
+            ]
         ];
 
         foreach ($roles as $roleData) {
-            $permissions = $roleData['permissions'];
+            $permissions = $roleData['permissions'] ?? [];
             unset($roleData['permissions']);
 
             $role = Role::firstOrCreate($roleData);
@@ -40,9 +43,14 @@ class RolePermissionSeeder extends Seeder
             $role->syncPermissions($permissions);
         }
 
-        $adminUser = User::where('email', 'admin@admin.com')->first();
+        $adminUser = User::where('email', 'admin@gmail.com')->first();
         if ($adminUser) {
             $adminUser->assignRole('admin');
+        }
+
+        $salesUser = User::where('email', 'sales@gmail.com')->first();
+        if ($salesUser) {
+            $salesUser->assignRole('sales');
         }
     }
 }

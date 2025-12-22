@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useFetchWithPagination } from "../../../api/hooks/useFetchWithPagination";
 import { getRoles } from "../../../api/features/dashboard/roles-permissions";
 import ProTable, { Column } from "../../../components/tables/ProTables/ProTable";
-import { Role, RolePaginationResponse } from "../../../api/features/dashboard/roles-permissions/Types";
+import { Role, RolePaginationResponse } from "../../../api/features/dashboard/roles-permissions/interface";
 import Badge from "../../../components/ui/badge/Badge";
 import { Edit, Trash2, Shield, Search, X, Plus, Key, Link2 } from "lucide-react";
 import Button from "../../../components/ui/button/Button";

@@ -1,0 +1,1 @@
+gunakan table user untuk bikin moudle sales. jadi nantinya ketika user di create maka berikan role sales. buatkan crud nya 

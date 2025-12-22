@@ -1,4 +1,4 @@
-import { RolePaginationResponse, Role, Permission } from "./Types";
+import { RolePaginationResponse, Role, Permission } from "./interface";
 
 export const getRoles = async (page: number = 1, perPage: number = 15, search?: string) => {
     const url = new URL(`/api/v1/role-permission/roles`, window.location.origin);

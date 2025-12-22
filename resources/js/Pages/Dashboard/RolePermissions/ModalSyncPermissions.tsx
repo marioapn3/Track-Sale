@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Modal } from "../../../components/ui/modal";
 import Label from "../../../components/form/Label";
 import Button from "../../../components/ui/button/Button";
-import { Role, Permission } from "../../../api/features/dashboard/roles-permissions/Types";
+import { Role, Permission } from "../../../api/features/dashboard/roles-permissions/interface";
 import { getPermissions, syncPermissionsToRole, getRolePermissions } from "../../../api/features/dashboard/roles-permissions";
 import { Loader2, Check } from "lucide-react";
 import { toast } from "sonner";

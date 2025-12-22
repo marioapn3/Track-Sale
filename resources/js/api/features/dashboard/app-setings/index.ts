@@ -1,4 +1,4 @@
-import type { AppSettings } from "./Types";
+import type { AppSettings } from "./interface";
 
 export interface UpdateAppSettingsPayload {
     app_name: string;
