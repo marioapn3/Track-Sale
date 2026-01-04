@@ -12,7 +12,8 @@ use Illuminate\Http\JsonResponse;
 
 class ApiAuthController extends Controller
 {
-    private  $apiAuthService;
+    private $apiAuthService;
+
     public function __construct(ApiAuthService $apiAuthService)
     {
         $this->apiAuthService = $apiAuthService;
@@ -23,9 +24,10 @@ class ApiAuthController extends Controller
         try {
             $dto = LoginDTO::fromRequest($request);
             $tokens = $this->apiAuthService->login($dto);
+
             return $this->success($tokens, 'Login successful');
         } catch (\Exception $e) {
-            return $this->error($e->getMessage(), $e->getCode());
+            return $this->error($e->getMessage(), $e->getCode() > 0 ? $e->getCode() : 401);
         }
     }
 
@@ -34,6 +36,7 @@ class ApiAuthController extends Controller
         try {
             $dto = RegisterDTO::fromRequest($request);
             $tokens = $this->apiAuthService->register($dto);
+
             return $this->success($tokens, 'Registration successful', 201);
         } catch (\Exception $e) {
             return $this->error($e->getMessage(), $e->getCode());

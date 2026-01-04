@@ -3,21 +3,21 @@
 namespace App\Modules\Auth\Services\Web;
 
 use App\Modules\Auth\DTOs\LoginDTO;
-use App\Modules\User\Models\User;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthService
 {
-    public function login(LoginDTO $dto): array
+    public function login(LoginDTO $dto): bool
     {
-        $user = User::where('email', $dto->email)->first();
-        if (!$user) {
-            throw new \Exception('User not found');
-        }
-        if (!Hash::check($dto->password, $user->password)) {
+        $credentials = [
+            'email' => $dto->email,
+            'password' => $dto->password,
+        ];
+
+        if (! Auth::attempt($credentials)) {
             throw new \Exception('Invalid credentials');
         }
-        return $user;
+
+        return true;
     }
 }
