@@ -242,3 +242,7 @@ export default function EditSales({ id }: EditSalesProps) {
     );
 }
 
+
+
+
+

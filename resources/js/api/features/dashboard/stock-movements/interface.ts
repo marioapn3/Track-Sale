@@ -43,3 +43,7 @@ export interface StockMovementsByProductResponse {
     stock_movements: StockMovementPaginationResponse;
 }
 
+
+
+
+

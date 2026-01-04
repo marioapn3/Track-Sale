@@ -129,3 +129,7 @@ export const getAllSales = async (): Promise<Sales[]> => {
     return response.data;
 };
 
+
+
+
+

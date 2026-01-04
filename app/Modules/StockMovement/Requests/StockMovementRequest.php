@@ -31,3 +31,7 @@ class StockMovementRequest extends FormRequest
         ];
     }
 }
+
+
+
+

@@ -50,6 +50,14 @@ enum RouteEnums: string
     case SALES_GET_SALES_BY_ID = 'sales.get-sales-by-id';
 
     // ========= Stock Movement Module =========
+
+    // ========= Store Module =========
+    case STORE_GET_STORES_PAGINATION = 'store.get-stores-pagination';
+    case STORE_CREATE_STORE = 'store.create-store';
+    case STORE_UPDATE_STORE = 'store.update-store';
+    case STORE_DELETE_STORE = 'store.delete-store';
+    case STORE_GET_ALL_STORES = 'store.get-all-stores';
+    case STORE_GET_STORE_BY_ID = 'store.get-store-by-id';
     case STOCK_MOVEMENT_INDEX = 'stock-movement.index';
     case STOCK_MOVEMENT_GET_STOCK_MOVEMENTS_PAGINATION = 'stock-movement.get-stock-movements-pagination';
     case STOCK_MOVEMENT_GET_STOCK_MOVEMENTS_BY_PRODUCT_SLUG = 'stock-movement.get-stock-movements-by-product-slug';

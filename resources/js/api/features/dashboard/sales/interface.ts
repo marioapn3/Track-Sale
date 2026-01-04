@@ -10,3 +10,7 @@ export interface Sales {
 
 export type SalesPaginationResponse = PaginationResponse<Sales>;
 
+
+
+
+

@@ -18,3 +18,7 @@ export interface Product {
 
 export type ProductPaginationResponse = PaginationResponse<Product>;
 
+
+
+
+

@@ -428,3 +428,7 @@ export default function EditProduct({ id }: EditProductProps) {
     );
 }
 
+
+
+
+
