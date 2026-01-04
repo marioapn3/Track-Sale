@@ -8,6 +8,15 @@
       "app.css"
     ]
   },
+  "resources/css/dashboard.css": {
+    "file": "assets/dashboard-FKrFkup4.css",
+    "src": "resources/css/dashboard.css",
+    "isEntry": true,
+    "name": "dashboard",
+    "names": [
+      "dashboard.css"
+    ]
+  },
   "resources/js/app.jsx": {
     "file": "assets/app-BIJFphel.js",
     "name": "app",
